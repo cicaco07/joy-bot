@@ -1,0 +1,5 @@
+﻿Test: find name mode matches filename case-insensitively
+File: tests/services/fileService.test.ts
+Input: query='readme', files=[README.md, index.ts, sub/readme.txt]
+Result: matches.length=2, all paths contain 'readme' (case-insensitive), truncated=false
+Status: PASS

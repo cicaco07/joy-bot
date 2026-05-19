@@ -1,0 +1,6 @@
+﻿Test: ls sorted - dirs first then files alphabetically, hidden excluded by default
+File: tests/services/fileService.test.ts
+Input: zebra-dir/, alpha-dir/, z-file.txt, a-file.txt, .hidden
+Result: entries = [alpha-dir(dir), zebra-dir(dir), a-file.txt(file), z-file.txt(file)]
+        .hidden excluded
+Status: PASS

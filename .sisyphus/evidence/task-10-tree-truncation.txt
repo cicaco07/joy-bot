@@ -1,0 +1,5 @@
+﻿Test: tree truncates at maxEntries, sets truncated: true
+File: tests/services/fileService.test.ts
+Input: 5 files in tmp dir, maxEntries: 3
+Result: { truncated: true, lines.length: 4 } (root line + 3 entries)
+Status: PASS

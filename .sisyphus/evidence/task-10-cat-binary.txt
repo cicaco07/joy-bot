@@ -1,0 +1,5 @@
+﻿Test: cat binary file (contains NUL byte) -> { kind: 'binary' }
+File: tests/services/fileService.test.ts
+Input: Buffer.from([0x50, 0x4b, 0x00, 0x04, 0x61, 0x62]) (6 bytes, contains NUL at offset 2)
+Result: { kind: 'binary', bytes: 6 }
+Status: PASS
