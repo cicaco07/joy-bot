@@ -237,7 +237,7 @@ export function formatJobList(jobs: JobRecord[]): FormatterResult {
   return textResult('<b>Jobs:</b>\n' + lines.join('\n'));
 }
 
-export function formatLogPreview(jobId: string, log: string, filter?: string): FormatterResult {
+export function formatLogPreview(jobId: string, log: string, storageDir: string, filter?: string): FormatterResult {
   let content = log;
   if (filter) {
     const lines = log.split('\n').filter((l) => l.includes(filter));
@@ -245,12 +245,7 @@ export function formatLogPreview(jobId: string, log: string, filter?: string): F
   }
   const body = `<b>Log:</b> ${htmlCode(jobId)}\n${htmlPre(content)}`;
   if (shouldSendAsDocument(body, DEFAULT_MAX_CHARS)) {
-    const tmpDir = path.join(process.env['STORAGE_DIR'] ?? path.join(process.cwd(), 'storage'), 'tmp');
-    fs.mkdirSync(tmpDir, { recursive: true });
-    const rand = Math.random().toString(36).slice(2, 10);
-    const filePath = path.join(tmpDir, `log_${rand}.txt`);
-    fs.writeFileSync(filePath, content, 'utf8');
-    return { kind: 'document', filePath, caption: `Log: ${jobId}`, parseMode: 'HTML' };
+    return writeTmpDoc(content, storageDir, `Log: ${jobId}`);
   }
   return textResult(body);
 }

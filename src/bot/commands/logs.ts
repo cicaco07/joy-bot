@@ -58,7 +58,7 @@ export function register(bot: Bot<Context>, deps: Deps): void {
         return;
       }
       const log = await logService.readLog(finished.logFile, { tail: 60 });
-      await sendResult(ctx, formatLogPreview(finished.id, log));
+      await sendResult(ctx, formatLogPreview(finished.id, log, storageDir));
       return;
     }
 
@@ -81,11 +81,11 @@ export function register(bot: Bot<Context>, deps: Deps): void {
 
     if (modifier === 'errors') {
       const log = await logService.readLog(resolved.logFile, { filter: 'stderr' });
-      await sendResult(ctx, formatLogPreview(resolved.jobId, log, 'stderr'));
+      await sendResult(ctx, formatLogPreview(resolved.jobId, log, storageDir, 'stderr'));
       return;
     }
 
     const log = await logService.readLog(resolved.logFile, { tail: 60 });
-    await sendResult(ctx, formatLogPreview(resolved.jobId, log));
+    await sendResult(ctx, formatLogPreview(resolved.jobId, log, storageDir));
   });
 }

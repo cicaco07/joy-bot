@@ -190,7 +190,7 @@ describe('formatterService', () => {
 
   it('formatLogPreview filters lines by keyword', () => {
     const log = 'line one\nERROR: bad thing\nline three\nERROR: another\n';
-    const result = formatLogPreview('job-123', log, 'ERROR');
+    const result = formatLogPreview('job-123', log, '/tmp/storage', 'ERROR');
     expect(result.kind).toBe('text');
     if (result.kind === 'text') {
       expect(result.text).toContain('bad thing');
