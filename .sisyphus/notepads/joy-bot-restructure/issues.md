@@ -1,0 +1,1 @@
+- T1: LSP diagnostics for JSON in this workspace currently depend on iome, which is configured but not installed.

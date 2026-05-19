@@ -1,18 +1,32 @@
 {
   "name": "new-folder",
   "version": "1.0.0",
-  "main": "src/bot.js",
+  "type": "module",
+  "main": "src/index.ts",
   "scripts": {
-    "start": "node src/bot.js",
-    "check-config": "node src/bot.js --check-config",
-    "check": "node --check src/bot.js"
+    "start": "tsx src/index.ts",
+    "dev": "tsx watch src/index.ts",
+    "check-config": "tsx src/bot.js --check-config",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run --passWithNoTests",
+    "test:watch": "vitest --passWithNoTests",
+    "test:coverage": "vitest run --coverage --passWithNoTests"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
+  "devDependencies": {
+    "@types/node": "^20",
+    "@vitest/coverage-v8": "^1",
+    "tsx": "^4",
+    "typescript": "^5",
+    "vitest": "^1"
+  },
   "dependencies": {
+    "@opencode-ai/sdk": "latest",
     "dotenv": "^17.4.2",
-    "grammy": "^1.43.0"
+    "grammy": "^1.43.0",
+    "zod": "latest"
   }
 }

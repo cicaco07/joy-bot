@@ -1,0 +1,1 @@
+- T1: Use 	sx as the TS runtime entrypoint and keep src/bot.js for legacy config checking during migration.
