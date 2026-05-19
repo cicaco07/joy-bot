@@ -1,0 +1,12 @@
+Evidence: invalid input rejection
+
+Command: npx vitest run tests/utils/pathGuard.test.ts --coverage
+Result: PASS
+
+Relevant test cases passed:
+- empty string -> invalid_input
+- whitespace only -> invalid_input
+- NUL byte a\0b -> invalid_input
+- \\?\ device namespace -> invalid_input
+- \\.\ device namespace -> invalid_input
+- UNC share -> rejected

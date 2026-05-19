@@ -1,0 +1,11 @@
+Evidence: symlink/junction realpath enforcement
+
+Command: npx vitest run tests/utils/pathGuard.test.ts --coverage
+Result: PASS
+
+Relevant test cases passed:
+- symlink inside root pointing outside -> outside_root
+- symlink inside root pointing inside root -> ok
+- Windows junction pointing outside covered by Windows-only test
+
+Implementation uses fs.realpathSync.native for both candidate and cached root before containment checks.

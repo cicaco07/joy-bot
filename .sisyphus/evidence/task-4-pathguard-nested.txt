@@ -1,0 +1,15 @@
+Evidence: nested path handling
+
+Command: npx vitest run tests/utils/pathGuard.test.ts --coverage
+Result: PASS
+
+Relevant test cases passed:
+- normal nested: a/b/c -> ok
+- mixed slashes: a\b/c -> ok
+- relative through valid nested path: a/b/../b/c -> ok
+- dot directory: .git -> ok
+- dot file: .env -> ok
+- unicode/emoji: proj/🚀/file.ts -> ok
+- path with spaces: my project/src -> ok
+- ./ prefix and multiple ./ segments -> ok
+- root itself -> ok

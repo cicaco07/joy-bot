@@ -1,0 +1,12 @@
+Evidence: traversal and escape rejection
+
+Command: npx vitest run tests/utils/pathGuard.test.ts --coverage
+Result: PASS
+
+Relevant test cases passed:
+- .. -> outside_root
+- ../.. -> outside_root
+- a/../../outside -> outside_root
+- absolute outside existing path -> outside_root
+- /etc/passwd -> rejected
+- Windows absolute outside / drive swap cases included with Windows-only skips where appropriate
