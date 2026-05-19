@@ -1,0 +1,19 @@
+Task 19 - /help command
+
+Files created:
+- src/bot/commands/help.ts
+- tests/bot/commands/help.test.ts
+
+Verification:
+- lsp_diagnostics: clean for src/bot/commands/help.ts and tests/bot/commands/help.test.ts
+- npx tsc --noEmit: exited 0
+- npx vitest run tests/bot/commands/start.test.ts tests/bot/commands/help.test.ts: passed
+
+Relevant test evidence:
+- /help outbound sendMessage text contains Workspace
+- /help outbound sendMessage text contains Files
+- /help outbound sendMessage text contains Opencode
+- /help outbound sendMessage text contains Sessions
+- /help outbound sendMessage text contains Jobs
+- /help outbound sendMessage text contains Settings
+- /help outbound sendMessage text does not contain /folders

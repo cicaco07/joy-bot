@@ -1,0 +1,16 @@
+Task 19 - /start command
+
+Files created:
+- src/bot/commands/start.ts
+- tests/bot/commands/start.test.ts
+
+Verification:
+- lsp_diagnostics: clean for src/bot/commands/start.ts and tests/bot/commands/start.test.ts
+- npx tsc --noEmit: exited 0
+- npx vitest run tests/bot/commands/start.test.ts tests/bot/commands/help.test.ts: passed
+
+Relevant test evidence:
+- /start outbound sendMessage text contains /workspaces
+- /start outbound sendMessage text contains /run
+- /start outbound sendMessage text does not contain /folders
+- /start outbound sendMessage text does not contain /use 
