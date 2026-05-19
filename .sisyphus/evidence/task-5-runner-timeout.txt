@@ -1,0 +1,3 @@
+timeout scenario verified by vitest case runProcess > marks process as timed out 
+command: node script with 200ms timeout 
+result: timedOut true, error contains timed out
